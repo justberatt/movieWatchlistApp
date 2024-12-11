@@ -110,6 +110,7 @@ input[type='text'] {
 
 .movies-list { 
     margin: 0;
+    color: white
 }
 
 .empty-list {
