@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Inter", sans-serif;
     box-sizing: border-box;
     background-color: #121212;
     height: 100vh;
@@ -14,7 +14,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
+.hero-background {
     background: url('../assets/movie-poster.jpg') center no-repeat;
     background-size: cover;
     position: relative;
@@ -49,14 +51,21 @@ body {
 .search-and-movieslist__container {
     padding: 4em 2em;
     margin: 0 auto;
+    width: 600px;
 }
 
 .search-and-movieslist__container {
-    position: relative;
+    /* position: relative; */
 
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 }
 
 .search-input__container {
@@ -64,15 +73,16 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    position: absolute;
-    top: -23.675px;
+    /* position: absolute; */
+    /* top: -23.675px;
     left: 50%;
     translate: calc(-50%);
-    z-index: 3;
-
+    z-index: 3; */
+    
     padding: 0 0 0 .5em;
-    height: 45px;
-    width: 70%;
+    margin-bottom: 3em;
+    height: 44px;
+    width: 100%;
     background: #2e2e2f;
     border-radius: 5px;
     outline: none;
@@ -110,6 +120,7 @@ input[type='text'] {
 
 .movies-list { 
     margin: 0;
+    padding: 0;
     color: white
 }
 
@@ -153,17 +164,92 @@ input[type='text'] {
     padding: 10px;
     margin-top: 1em;
     transition: transform 0.2s, background-color 0.2s;
-  }
+}
   
-  .add-movies:hover {
-    transform: scale(1.05);
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-  }
-  
-  .add-movies svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-  }
-  
+.add-movies:hover {
+transform: scale(1.05);
+background-color: rgba(255, 255, 255, 0.1);
+border-radius: 8px;
+}
+
+.add-movies svg {
+width: 24px;
+height: 24px;
+fill: white;
+}
+
+  /* Movies added through JS; fetched from the OMDB API */
+.movie-card {
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #2C2C2C;
+    padding: 1.5em 0;
+    width: 100%;
+}
+
+.movie-poster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+}
+
+.movie-poster img {
+    width: 100%;
+}
+
+.movie-info {
+    padding: 1em 1.5em;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.movie-header > h2,
+.movie-header > p,
+.movie-category > p {
+    margin: 0;
+}
+
+.movie-header,
+.movie-category {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.movie-category {
+    margin: 8px 0;
+    gap: 1.5em;
+}
+
+.movie-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.movie-category *,
+.movie-rating {
+    font-size: .75rem;
+}
+
+.add-to-watchlist-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: .75rem;
+}
+
+.movie-plot {
+    font-size: .875rem;
+    color: #A5A5A5;
+    margin: 0;
+    line-height: 20px;
+}
