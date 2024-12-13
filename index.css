@@ -48,7 +48,8 @@ body {
 }
 
 .hero,
-.search-and-movieslist__container {
+.search-and-movieslist__container,
+.watchlist-container {
     padding: 4em 2em;
     margin: 0 auto;
     width: 600px;
@@ -235,7 +236,8 @@ fill: white;
     font-size: .75rem;
 }
 
-.add-to-watchlist-btn {
+.add-to-watchlist-btn,
+.remove-from-watchlist-btn {
     display: flex;
     align-items: center;
     gap: 5px;
