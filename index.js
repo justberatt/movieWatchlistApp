@@ -1,7 +1,3 @@
-// me leshu event listener edhe per ne momentin 
-//qe fillon me shkrujt input edhe kur tklikohet
-// butoni. 
-
 const inputField = document.querySelector('#search-movie')
 const searchBtn = document.querySelector('#search-btn')
 const moviesList = document.querySelector('#search-movies-list')
@@ -87,12 +83,24 @@ const handleAddToWatchlistClick = (filmID) => {
 
             watchlist.push(movie);
             localStorage.setItem('watchlist', JSON.stringify(watchlist));
-            alert('Movie added to your watchlist!');
+            const button = document.querySelector(`[data-add="${filmID}"]`);
+            if (button) {
+                button.textContent = "Added!";
+                button.style.color = "lightgreen"
+                button.disabled = true;
+            }
         })
         .catch(err => console.error('Error fetching movie data:', err));
 };
 
 const getMovies = () => {
+    const query = inputField.value.trim();
+    if (!query) {
+        const search = document.querySelector('#search-input__container')
+        search.classList.add('shake')
+        setTimeout(() => search.classList.remove('shake'), 3000)
+        return;
+    }
     fetch(`http://www.omdbapi.com/?s=${inputField.value}&apikey=d9160841`)
         .then(res => res.json())
         .then(data => {
