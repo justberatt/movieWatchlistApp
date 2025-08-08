@@ -61,7 +61,7 @@ const handleRmvFromWatchlistClick = (filmID) => {
 
 // Handle adding a movie to the watchlist
 const handleAddToWatchlistClick = (filmID) => {
-    fetch(`http://www.omdbapi.com/?i=${filmID}&apikey=d9160841`)
+    fetch(`https://www.omdbapi.com/?i=${filmID}&apikey=d9160841`)
         .then(res => res.json())
         .then(data => {
             // Check if the movie is already in the watchlist
@@ -101,7 +101,7 @@ const getMovies = () => {
         setTimeout(() => search.classList.remove('shake'), 3000)
         return;
     }
-    fetch(`http://www.omdbapi.com/?s=${inputField.value}&apikey=d9160841`)
+    fetch(`https://www.omdbapi.com/?s=${inputField.value}&apikey=d9160841`)
         .then(res => res.json())
         .then(data => {
             render(data)
@@ -111,7 +111,7 @@ const getMovies = () => {
 const render = (data) => {
     let html = ''
     data.Search.forEach(film => {
-        fetch(`http://www.omdbapi.com/?i=${film.imdbID}&apikey=d9160841`)
+        fetch(`https://www.omdbapi.com/?i=${film.imdbID}&apikey=d9160841`)
             .then(res => res.json())
             .then(data => {
                 html += `
