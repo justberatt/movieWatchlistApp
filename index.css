@@ -255,10 +255,17 @@ fill: white;
     gap: 5px;
     background-color: transparent;
     border: none;
-    color: white;
     cursor: pointer;
     text-align: center;
     font-size: .75rem;
+}
+
+.add-to-watchlist-btn {
+    color: rgb(66, 255, 123);
+}
+
+.remove-from-watchlist-btn {
+    color: rgba(254, 60, 83, 1);
 }
 
 .movie-plot {
